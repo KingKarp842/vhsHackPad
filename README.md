@@ -21,17 +21,15 @@ The enclosure will be designed around the PCB and mechanical switches, with atte
 
 ## Creation Process
 1. Initial Idea & Planning 
-- I started vhsHackPad because I wanted to make a custom macropad specifically for VHS Hack Club. I had already made a macropad before using a XIAO RP2040, so this time I wanted to make it more advanced by putting the RP2040 and all of its supporting components directly onto my own PCB. I also wanted the PCB itself to look good instead of just hiding all of the electronics inside a case.
+- I started vhsHackPad because I wanted to make a custom macropad specifically for VHS Hack Club. I had already made a macropad before using a XIAO RP2040, so this time I wanted to make it more advanced by putting the RP2040 and all of its supporting components directly onto my own PCB. I also wanted the PCB itself to look good instead of just hiding all of the electronics inside a case, and it would also represent the "maker" element of Hack Club.  
 
 3. Designing the Schematic
-- I started designing the electronics in KiCad. I added the RP2040, USB-C, power circuitry, crystal, switches, and all of the supporting components needed for the RP2040 to work. Since I wasn't just using a development board this time, I had to actually figure out how all of the components around the RP2040 connected.
-I ran into some problems while doing this, especially with the external crystal and some of the connections around the RP2040. I had to figure out which crystal pins were the actual signal pins and which ones needed to be grounded. After fixing those connections and some other schematic issues, I was able to move on to the actual PCB.
+- I started designing the electronics in KiCad. I added the RP2040, USB-C, power circuitry, crystal, switches, and all of the supporting components needed for the RP2040 to work. Since I wasn't just using a development board this time, I had to actually figure out how all of the components around the RP2040 connected.  I also added a GPIO pinout for fun, because I had more then enough room and I thought it could be kinda cool if the macropad could also technically function as a development board (though I would not recommend it). I ran into some problems while doing this, especially with the external crystal and some of the connections around the RP2040. I had to figure out which crystal pins were the actual signal pins and which ones needed to be grounded. After fixing those connections and some other schematic issues, I was able to move on to the actual PCB.
 
 <img width="1038" height="713" alt="vhsHackPad SCHEMATIC" src="https://github.com/user-attachments/assets/7909ef98-4950-440e-b947-1d233d48576f" />
 
 4. PCB Layout & Routing
-- After finishing the schematic, I started placing all of the components onto the PCB and routing everything together. I had to think about where the switches would go while also finding enough space for the RP2040, USB-C port, and all of the smaller components.
-I went through the DRC multiple times while fixing routing and clearance problems. Eventually, I got the actual electrical design down to 0 unconnected pads, 0 footprint errors, and 0 electrical clearance violations. The remaining warnings were mostly related to the silkscreen instead of actual electrical problems.
+- After finishing the schematic, I started placing all of the components onto the PCB and routing everything together. I had to think about where the switches would go while also finding enough space for the RP2040, USB-C port, and all of the smaller components.  This was actually my first time working with a embedded MCU (I never made a dev board funnily enough) so I was jumping into this headfirst and had to do a lot of research on where everything goes relative to the chip.  I went through the DRC multiple times while fixing routing and clearance problems. Eventually, I got the actual electrical design down to 0 unconnected pads, 0 footprint errors, and 0 electrical clearance violations. The remaining warnings were mostly related to the silkscreen instead of actual electrical problems.
 
 <img width="611" height="578" alt="vhshackpadMCU" src="https://github.com/user-attachments/assets/ed777dcb-c00a-4cb0-a0f7-cb3ed291f26a" />
 
@@ -46,8 +44,7 @@ Finished Routing
 3D Render
 
 5. Custom PCB Artwork
-- I didn't want the PCB to just look like a normal circuit board, so I spent time adding custom artwork and branding to it. I added things like vhsHackPad, Designed by Preston Nguyen, Made For VHS Hack Club, and the board version/date.
-I also experimented with using exposed copper and ENIG to make parts of the artwork appear gold on the finished PCB. I had to figure out how the copper, solder mask openings, and silkscreen layers worked together. Some artwork also had to be simplified because really tiny details wouldn't manufacture very well.
+- I didn't want the PCB to just look like a normal circuit board, so I spent time adding custom artwork and branding to it. I added things like vhsHackPad, Designed by Preston Nguyen, Made For VHS Hack Club, and the board version/date; also added a bunch of Orpheus art which looked really good after! I also experimented with using exposed copper and ENIG to make parts of the artwork appear gold on the finished PCB. I had to figure out how the copper, solder mask openings, and silkscreen layers worked together. Some artwork also had to be simplified because really tiny details wouldn't manufacture very well.
 <img width="960" height="717" alt="vhsHackPadCOPPERFLAG" src="https://github.com/user-attachments/assets/5d66b3b2-3fe2-4a5c-a251-688c8727aaa3" />
 
 Copper flag art
@@ -75,11 +72,11 @@ Render of the pcb (obviously in black)
 
 7. Designing the Enclosure
 - Once the PCB was mostly finished, I started designing the enclosure. I used measurements from my previous macropad as a starting point since I already knew roughly what worked and what didn't.
-For the new design, I made the switch openings about 15.75 mm × 15.75 mm because I didn't want the switches to tightly clip into the printed enclosure. I also worked on the spacing between the switches and the edges so everything would fit without making the case unnecessarily large.
+For the new design, I made the switch openings about 15.75 mm × 15.75 mm because I didn't want the switches to tightly clip into the printed enclosure, especially if they wanted to access the board itself. I also worked on the spacing between the switches and the edges so everything would fit without making the case unnecessarily large.
 
 8. Fixing Switch & Case Clearances
 - Some of my original dimensions ended up being a little too tight, so I had to go back and change the clearances. Since the enclosure will be 3D printed, I couldn't design everything with basically zero tolerance and expect it to fit perfectly.
-I adjusted the switch openings, spacing, and surrounding walls until there was enough room for everything while still keeping the HackPad compact.
+I adjusted the switch openings, spacing, and surrounding walls until there was enough room for everything while still keeping the HackPad compact (went through about 4 versions).
 
 9. Designing the Slide-In Case
 - I wanted the enclosure pieces to slide together instead of relying on a bunch of screws, so I designed small slide-in tabs and matching openings.
@@ -107,8 +104,7 @@ Top View of Finished CAD
 FINISHED CAD
 
 11. Final Design
-- After working through the electronics, PCB layout, artwork, enclosure, and tolerances, I ended up with a complete vhsHackPad design that combines my custom PCB with a custom enclosure. The project was also a step up from my previous macropad because instead of building around a premade RP2040 
-development board, I designed the RP2040 electronics directly into the PCB myself.
+- After working through the electronics, PCB layout, artwork, enclosure, and tolerances, I ended up with a complete vhsHackPad design that combines my custom PCB with a custom enclosure. The project was also a step up from my previous macropad because instead of building around a premade RP2040 development board, I designed the RP2040 electronics directly into the PCB myself.  This also made it much cleaner and closer to a finished product.
 
 <img width="768" height="1024" alt="B6525CCC-FC3B-416D-AB25-DD14E9A96C1E_1_105_c" src="https://github.com/user-attachments/assets/960c6158-ac60-4d56-b8cc-5d29d792fadf" />
 
