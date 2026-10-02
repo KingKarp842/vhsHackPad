@@ -6,14 +6,19 @@ The four switches are connected directly to GPIO pins on the RP2040:
 - GPIO3 = Left
 - GPIO4 = Down
 - GPIO5 = Right
+
 By default, the macropad works as a normal arrow-key pad.
 It also has a second shortcut mode. To switch modes, press all three bottom keys at the same time, release them, and repeat that 3 times within about 2 seconds.
-Arrow Mode
+
+## Arrow Mode
+
 - Top = Up Arrow
 - Bottom Left = Left Arrow
 - Bottom Middle = Down Arrow
 - Bottom Right = Right Arrow
-Shortcut Mode
+
+## Shortcut Mode
+
 - Top = Command + Tab
 - Bottom Left = Command + T
 - Bottom Middle = Command + V
