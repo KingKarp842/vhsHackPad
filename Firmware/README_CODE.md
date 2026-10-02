@@ -38,15 +38,7 @@ The firmware uses Adafruit's HID library.
 Download the CircuitPython Library Bundle that matches the major version of CircuitPython installed on the board.
 From the bundle, copy:
 adafruit_hid
-
 into the lib folder on the board.
-The drive should look something like:
-CIRCUITPY/
-├── code.py
-├── lib/
-│   └── adafruit_hid/
-├── boot_out.txt
-└── settings.toml
 
 Installing the Firmware
 Copy the macropad firmware into the root of the CIRCUITPY drive and name it:
