@@ -19,10 +19,11 @@ Shortcut Mode
 - Bottom Middle = Command + V
 - Bottom Right = Command + C
 Pressing the bottom three keys together 3 times again switches back to arrow mode.
+
 How the Code Works
-Each switch is set up as a digital input with the RP2040's internal pull-up resistor enabled.
-Because each switch connects the GPIO pin to ground when pressed, the code treats a LOW signal as a key press.
+Each switch is set up as a digital input with the RP2040's internal pull-up resistor enabled. Because each switch connects the GPIO pin to ground when pressed, the code treats a LOW signal as a key press.
 The program constantly checks the state of all four switches. When a key changes from released to pressed, it sends the matching keyboard command over USB using adafruit_hid.
+
 The code also watches for the three bottom keys being pressed at the same time. Each completed three-key press counts toward the mode-change sequence. After three of these presses, the firmware switches between arrow mode and shortcut mode.
 
 Setting Up the Board
