@@ -126,3 +126,5 @@ The firmware is designed to be easily changed later, so the keys can be remapped
 
 12. Testing & Iterating the Firmware
 - Once the firmware was set up, I tested the switches to make sure the RP2040 could correctly detect each key press and send the expected keyboard input over USB. When something didn't behave correctly, I could compare the code against my schematic and PCB pin assignments to figure out whether the problem came from the firmware or hardware. I also used the testing process to make changes to the keymap and make sure the HackPad behaved like a normal USB keyboard when connected to a computer.
+
+Check out the CODE README under the Firmware section!
