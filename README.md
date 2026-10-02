@@ -103,7 +103,7 @@ Top View of Finished CAD
 
 FINISHED CAD
 
-11. Final Design
+11. Final Hardware Design
 - After working through the electronics, PCB layout, artwork, enclosure, and tolerances, I ended up with a complete vhsHackPad design that combines my custom PCB with a custom enclosure. The project was also a step up from my previous macropad because instead of building around a premade RP2040 development board, I designed the RP2040 electronics directly into the PCB myself.  This also made it much cleaner and closer to a finished product.
 
 <img width="768" height="1024" alt="B6525CCC-FC3B-416D-AB25-DD14E9A96C1E_1_105_c" src="https://github.com/user-attachments/assets/960c6158-ac60-4d56-b8cc-5d29d792fadf" />
@@ -119,3 +119,10 @@ I was scoring and snapping the acrylic and got lazy so the top left is snapped w
 <img width="768" height="1024" alt="52E2D442-2B58-433F-9D02-B933B688B8AD_1_105_c" src="https://github.com/user-attachments/assets/370025d0-f761-4410-a616-e0fa677e3d97" />
 
 Final Assembled Build
+
+12. Programming the HackPad
+- After designing the hardware, I also worked on the firmware that will actually make the HackPad function as a keyboard. I used CircuitPython with KMK to program the RP2040 and assign an action to each mechanical switch. I set up the switch pins in the code and created the keymap that determines what happens whenever each key is pressed. I also had to make sure the firmware matched the GPIO pins I chose while designing the PCB, since each physical switch on the board needs to correspond to the correct pin in the code.
+The firmware is designed to be easily changed later, so the keys can be remapped to different keyboard shortcuts or functions without changing any of the hardware. This gave me experience connecting the software side of the project directly to hardware that I designed myself.
+
+13. Testing & Iterating the Firmware
+- Once the firmware was set up, I tested the switches to make sure the RP2040 could correctly detect each key press and send the expected keyboard input over USB. When something didn't behave correctly, I could compare the code against my schematic and PCB pin assignments to figure out whether the problem came from the firmware or hardware. I also used the testing process to make changes to the keymap and make sure the HackPad behaved like a normal USB keyboard when connected to a computer.
