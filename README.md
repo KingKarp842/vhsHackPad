@@ -23,12 +23,12 @@ The enclosure will be designed around the PCB and mechanical switches, with atte
 1. Initial Idea & Planning 
 - I started vhsHackPad because I wanted to make a custom macropad specifically for VHS Hack Club. I had already made a macropad before using a XIAO RP2040, so this time I wanted to make it more advanced by putting the RP2040 and all of its supporting components directly onto my own PCB. I also wanted the PCB itself to look good instead of just hiding all of the electronics inside a case, and it would also represent the "maker" element of Hack Club.  
 
-3. Designing the Schematic
+2. Designing the Schematic
 - I started designing the electronics in KiCad. I added the RP2040, USB-C, power circuitry, crystal, switches, and all of the supporting components needed for the RP2040 to work. Since I wasn't just using a development board this time, I had to actually figure out how all of the components around the RP2040 connected.  I also added a GPIO pinout for fun, because I had more then enough room and I thought it could be kinda cool if the macropad could also technically function as a development board (though I would not recommend it). I ran into some problems while doing this, especially with the external crystal and some of the connections around the RP2040. I had to figure out which crystal pins were the actual signal pins and which ones needed to be grounded. After fixing those connections and some other schematic issues, I was able to move on to the actual PCB.
 
 <img width="1038" height="713" alt="vhsHackPad SCHEMATIC" src="https://github.com/user-attachments/assets/7909ef98-4950-440e-b947-1d233d48576f" />
 
-4. PCB Layout & Routing
+3. PCB Layout & Routing
 - After finishing the schematic, I started placing all of the components onto the PCB and routing everything together. I had to think about where the switches would go while also finding enough space for the RP2040, USB-C port, and all of the smaller components.  This was actually my first time working with a embedded MCU (I never made a dev board funnily enough) so I was jumping into this headfirst and had to do a lot of research on where everything goes relative to the chip.  I went through the DRC multiple times while fixing routing and clearance problems. Eventually, I got the actual electrical design down to 0 unconnected pads, 0 footprint errors, and 0 electrical clearance violations. The remaining warnings were mostly related to the silkscreen instead of actual electrical problems.
 
 <img width="611" height="578" alt="vhshackpadMCU" src="https://github.com/user-attachments/assets/ed777dcb-c00a-4cb0-a0f7-cb3ed291f26a" />
@@ -43,7 +43,7 @@ Finished Routing
 
 3D Render
 
-5. Custom PCB Artwork
+4. Custom PCB Artwork
 - I didn't want the PCB to just look like a normal circuit board, so I spent time adding custom artwork and branding to it. I added things like vhsHackPad, Designed by Preston Nguyen, Made For VHS Hack Club, and the board version/date; also added a bunch of Orpheus art which looked really good after! I also experimented with using exposed copper and ENIG to make parts of the artwork appear gold on the finished PCB. I had to figure out how the copper, solder mask openings, and silkscreen layers worked together. Some artwork also had to be simplified because really tiny details wouldn't manufacture very well.
 <img width="960" height="717" alt="vhsHackPadCOPPERFLAG" src="https://github.com/user-attachments/assets/5d66b3b2-3fe2-4a5c-a251-688c8727aaa3" />
 
@@ -57,7 +57,7 @@ Orpheus (Hack Club Mascot) silk art!
 
 3D Render w/ Silk
 
-6. Preparing the PCB for Manufacturing
+5. Preparing the PCB for Manufacturing
 - While designing the board, I also kept PCB manufacturing and assembly in mind. I checked components and tried to make choices that would keep the board reasonably inexpensive and compatible with economical PCB assembly instead of making it unnecessarily expensive.
 I also checked the final PCB for errors and made sure the important electrical issues were fixed before considering it ready to manufacture.
 <img width="1101" height="593" alt="Screenshot 2026-08-14 at 11 58 27 PM" src="https://github.com/user-attachments/assets/f9bbbb9c-8921-4665-ba7a-9078649225a0" />
@@ -70,15 +70,15 @@ Matching Parts
 
 Render of the pcb (obviously in black)
 
-7. Designing the Enclosure
+6. Designing the Enclosure
 - Once the PCB was mostly finished, I started designing the enclosure. I used measurements from my previous macropad as a starting point since I already knew roughly what worked and what didn't.
 For the new design, I made the switch openings about 15.75 mm × 15.75 mm because I didn't want the switches to tightly clip into the printed enclosure, especially if they wanted to access the board itself. I also worked on the spacing between the switches and the edges so everything would fit without making the case unnecessarily large.
 
-8. Fixing Switch & Case Clearances
+7. Fixing Switch & Case Clearances
 - Some of my original dimensions ended up being a little too tight, so I had to go back and change the clearances. Since the enclosure will be 3D printed, I couldn't design everything with basically zero tolerance and expect it to fit perfectly.
 I adjusted the switch openings, spacing, and surrounding walls until there was enough room for everything while still keeping the HackPad compact (went through about 4 versions).
 
-9. Designing the Slide-In Case
+8. Designing the Slide-In Case
 - I wanted the enclosure pieces to slide together instead of relying on a bunch of screws, so I designed small slide-in tabs and matching openings.
 Originally, some of the tabs and openings were around 0.60 mm and 0.75 mm, but I realized that making a tab exactly the same size as its opening would probably make it way too tight after 3D printing. I started experimenting with smaller tab dimensions, including around 0.45 mm for a 0.60 mm opening, to add enough tolerance.
 The goal was to make the fit tight enough that the case wouldn't randomly come apart, but not so tight that it would be insanely difficult to separate.
@@ -91,7 +91,7 @@ The goal was to make the fit tight enough that the case wouldn't randomly come a
 
 Solidworks Crashed alot... also lapse didn't work on all of CAD...
 
-10. Iterating the CAD
+9. Iterating the CAD
 - Changing the tabs also affected the rest of the case, so I had to keep adjusting nearby dimensions and wall thicknesses. For example, when I changed dimensions from around 0.75 mm to 0.60 mm, I also had to change some of the distances between those features and the walls.
 A lot of the enclosure design ended up being small iterations like this—changing one measurement, checking what it affected, and then adjusting the surrounding geometry until everything worked together.
 
@@ -103,7 +103,7 @@ Top View of Finished CAD
 
 FINISHED CAD
 
-11. Final Hardware Design
+10. Final Hardware Design
 - After working through the electronics, PCB layout, artwork, enclosure, and tolerances, I ended up with a complete vhsHackPad design that combines my custom PCB with a custom enclosure. The project was also a step up from my previous macropad because instead of building around a premade RP2040 development board, I designed the RP2040 electronics directly into the PCB myself.  This also made it much cleaner and closer to a finished product.
 
 <img width="768" height="1024" alt="B6525CCC-FC3B-416D-AB25-DD14E9A96C1E_1_105_c" src="https://github.com/user-attachments/assets/960c6158-ac60-4d56-b8cc-5d29d792fadf" />
@@ -120,9 +120,9 @@ I was scoring and snapping the acrylic and got lazy so the top left is snapped w
 
 Final Assembled Build
 
-12. Programming the HackPad
+11. Programming the HackPad
 - After designing the hardware, I also worked on the firmware that will actually make the HackPad function as a keyboard. I used CircuitPython with KMK to program the RP2040 and assign an action to each mechanical switch. I set up the switch pins in the code and created the keymap that determines what happens whenever each key is pressed. I also had to make sure the firmware matched the GPIO pins I chose while designing the PCB, since each physical switch on the board needs to correspond to the correct pin in the code.
 The firmware is designed to be easily changed later, so the keys can be remapped to different keyboard shortcuts or functions without changing any of the hardware. This gave me experience connecting the software side of the project directly to hardware that I designed myself.
 
-13. Testing & Iterating the Firmware
+12. Testing & Iterating the Firmware
 - Once the firmware was set up, I tested the switches to make sure the RP2040 could correctly detect each key press and send the expected keyboard input over USB. When something didn't behave correctly, I could compare the code against my schematic and PCB pin assignments to figure out whether the problem came from the firmware or hardware. I also used the testing process to make changes to the keymap and make sure the HackPad behaved like a normal USB keyboard when connected to a computer.
