@@ -1,5 +1,7 @@
 # vhsHackPad
 
+ts project took me like 30 hours 
+
 ## Project Desc.
 vhsHackPad is a custom macropad designed for VHS Hack Club. The project will combine a custom RP2040-based PCB, mechanical keyboard switches, USB-C, and a custom-designed enclosure into a compact programmable keyboard. Instead of using a separate development board, the RP2040 and its supporting electronics will be integrated directly onto the PCB, making the board thinner and more complete as a standalone device.
 
